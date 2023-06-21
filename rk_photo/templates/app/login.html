@@ -1,0 +1,67 @@
+{%load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+
+    <!-- Bootstrap CSS -->
+    <link  href="{% static 'contact_css/bootstrap.min.css' %}" rel="stylesheet">
+    
+    <!-- Style -->
+    <link href="{% static 'contact_css/style.css' %}"  rel="stylesheet">
+
+    <title>Login Page</title>
+  </head>
+  <body>
+  
+
+  <div class="content padd">
+    
+    <div class="container">
+        <div class="col-md-12">
+          <div class="box">
+            <form class="mb-5" action="{% url 'invoice:login' %}" method="post" id="contactForm" name="contactForm" >
+              {% csrf_token %}
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <label for="name" class="col-form-label">Username</label>
+                  <input type="text" class="form-control" name="username">
+                </div>
+                <div class="col-md-6 form-group align-items-center">
+                    {% if msg %}
+						<h4>{{msg}}</h4>
+					{% endif %}
+                </div>
+               </div> 
+              <div class="row">
+                <div class="col-md-6">
+                  <input type="submit" value="Login" class="btn btn-block btn-primary rounded-0 py-2 px-4">
+                  <span class="submitting"></span>
+                </div>
+              </div>
+            </form>
+
+            <div id="form-message-warning mt-4"></div> 
+            <div id="form-message-success">
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+    
+    
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="{%static 'js/bootstrap.min.js'%}"></script>
+    <script src="{%static 'js/jquery.validate.min.js'%}"></script>
+    <script src="js/main.js"></script>
+
+  </body>
+</html>

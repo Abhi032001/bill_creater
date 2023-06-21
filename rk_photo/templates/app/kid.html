@@ -1,0 +1,193 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>kid</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/remixicon/remixicon.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css'%}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css'%}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Tempo - v4.10.0
+  * Template URL: https://bootstrapmade.com/tempo-free-onepage-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center justify-content-between">
+
+    <a href="index.html" class="logo"><img src="{% static 'assets/img/rk.png'%}" alt="" class="img-fluid"></a>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="{% url 'invoice:home' %}">Home</a></li>
+          <li><a href="{% url 'invoice:team' %}">Team</a></li>
+          <li class="dropdown"><a href="#" class="active"><span>Portfolio</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li><a href="{% url 'invoice:wedding' %}">Wedding</a></li>
+              <li><a href="{% url 'invoice:boy' %}">Boys</a></li>
+              <li><a href="{% url 'invoice:girl' %}">Girls</a></li>
+              <li><a href="{% url 'invoice:kid' %}"  >kids</a></li>
+              <li><a href="{% url 'invoice:album' %}" >Album</a></li>
+            </ul>
+          </li>
+          <li><a href="{% url 'invoice:contact' %}">Contact</a></li>
+        </ul>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+
+  <section id="hero" style="width: 100%;
+  height: 100vh;
+  background: url({% static 'assets/img/bg/bg_kid.jpg'%});
+  background-size: cover;
+  position: relative;">>
+    <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
+      <!-- <h1>Welcome to</h1>
+      <div class="geeks">
+        <span>R</span>
+        <span>K</span>
+        <span>_</span>
+        <span>P</span>
+        <span>H</span>
+        <span>O</span>
+        <span>T</span>
+        <span>G</span>
+        <span>R</span>
+        <span>A</span>
+        <span>P</span>
+        <span>H</span>
+        <span>Y</span>
+    </div> -->
+  <!-- </div> -->
+</section><!-- End Hero Section -->
+
+  <section id="portfolio" class="portfolio">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Portfolio</h2>
+          <h3>Check our <span>Portfolio</span></h3>
+          <p></p>
+        </div>
+
+       <div class="row">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">Kids</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row portfolio-container">
+          {% if kid_photo %}
+          {% for photo in kid_photo %}
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-boy">
+            <img src="{{MEDIA_URL}}{{photo.album.url}}" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>{{photo.title}}</h4>
+              <p></p>
+              <a href="{{MEDIA_URL}}{{photo.album.url}}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="{{photo.title}}"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+          {% endfor%}
+          {% endif %}
+        </div>
+      </div>
+    </section>
+ <!-- ======= Footer ======= -->
+ <footer id="footer">
+
+  <div class="footer-top">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-3 col-md-6 footer-contact">
+          <h3>rk_photography</h3>
+          <p>
+            At-Chanpa<br>
+            TH-Saoner<br>
+            DIST-Nagpur ,441113<br><br>
+            <strong>Phone:</strong>+91 9518930067<br>
+            <strong>Email:</strong>rkphotography16@gmail.com<br>
+          </p>
+        </div>
+
+        <div class="col-lg-2 col-md-6 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><i class="bx bx-chevron-right"></i> <a href="{% url 'invoice:home' %}">Home</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="{% url 'invoice:team' %}">Team</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="{% url 'invoice:album' %}">Portfolio</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="{% url 'invoice:contact' %}">Contact</a></li>
+
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Our Services</h4>
+          <ul>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Wedding Photography</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Wedding Videography</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Album Design</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">All Social Media Event</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-6 footer-newsletter">
+          <div class="social-links text-md-right pt-3 pt-md-0">
+            <h4>Follow On Sacial Media</h4>
+            <a href="https://www.instagram.com/rk_wedding_capture_16" class="facebook"><i class="bx bxl-facebook"></i></a>
+            <a href="https://www.instagram.com/rk_wedding_capture_16" class="instagram"><i class="bx bxl-instagram"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  
+</footer><!-- End Footer -->
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+<script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+<script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js'%}"></script>
+<script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js'%}"></script>
+<script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js'%}"></script>
+
+
+
+
+<!-- Template Main JS File -->
+<script src="{% static 'assets/js/main.js'%}"></script>
+</body>
+
+</html>
